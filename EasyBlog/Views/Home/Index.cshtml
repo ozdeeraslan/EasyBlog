@@ -1,8 +1,30 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@using EasyBlog.Data
+@model List<Post>
+
+@foreach (var item in Model)
+{
+    <div class="card mb-4">
+        <a href="#!"><img class="card-img-top post-image" src="~/img/posts//@item.Image" alt="@item.Title" /></a>
+        <div class="card-body">
+            <h2 class="card-title">@item.Title</h2>
+            <p class="card-text">@item.Description</p>
+            <a class="btn btn-primary" href="#!">Read more →</a>
+        </div>
+    </div>
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+
+<!-- Pagination-->
+<nav aria-label="Pagination">
+    <hr class="my-0" />
+    <ul class="pagination justify-content-center my-4">
+        <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Newer</a></li>
+        <li class="page-item active" aria-current="page"><a class="page-link" href="#!">1</a></li>
+        <li class="page-item"><a class="page-link" href="#!">2</a></li>
+        <li class="page-item"><a class="page-link" href="#!">3</a></li>
+        <li class="page-item disabled"><a class="page-link" href="#!">...</a></li>
+        <li class="page-item"><a class="page-link" href="#!">15</a></li>
+        <li class="page-item"><a class="page-link" href="#!">Older</a></li>
+    </ul>
+</nav>
+
